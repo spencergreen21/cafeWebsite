@@ -1,0 +1,50 @@
+{% include "header.html" %}
+
+<h1>All Cafes</h1>
+
+<!-- Filters -->
+<form method="GET" action="/">
+    <label for="location_filter">Location:</label>
+    <select id="location_filter" name="location">
+        <option value="">All</option>
+        <option value="London Bridge">London Bridge</option>
+        <!-- Add more options for other locations -->
+    </select>
+    <br>
+    <input type="checkbox" id="sockets_filter" name="sockets">
+    <label for="sockets_filter">Has Sockets</label><br>
+    <input type="checkbox" id="toilet_filter" name="toilet">
+    <label for="toilet_filter">Has Toilet</label><br>
+    <input type="checkbox" id="wifi_filter" name="wifi">
+    <label for="wifi_filter">Has Wifi</label><br>
+    <input type="checkbox" id="calls_filter" name="calls">
+    <label for="calls_filter">Can Take Calls</label><br>
+    <input type="submit" value="Apply Filters">
+</form>
+
+<br>
+
+<!-- Add Cafe Option -->
+<a href="{{ url_for('post_new_cafe') }}">Add Cafe</a>
+
+<br>
+<br>
+<br>
+<br>
+
+<!-- Cafe List -->
+{% for cafe in cafes %}
+<div class="cafe-card">
+    <h2>{{ cafe.name }}</h2>
+    <p><strong>Location:</strong> {{ cafe.location }}</p>
+    <p><strong>Seats:</strong> {{ cafe.seats }}</p>
+    <p><strong>Has Toilet:</strong> {{ "Yes" if cafe.has_toilet else "No" }}</p>
+    <p><strong>Has Wifi:</strong> {{ "Yes" if cafe.has_wifi else "No" }}</p>
+    <p><strong>Has Sockets:</strong> {{ "Yes" if cafe.has_sockets else "No" }}</p>
+    <p><strong>Can Take Calls:</strong> {{ "Yes" if cafe.can_take_calls else "No" }}</p>
+    <p><strong>Coffee Price:</strong> {{ cafe.coffee_price }}</p>
+    <p><a href="{{ url_for('delete_cafe', cafe_id=cafe.id) }}">Delete</a></p>
+    <p><a href="{{ url_for('patch_new_price', cafe_id=cafe.id) }}">Change Price</a></p><br>
+    <img class="cafe-img" src="{{ cafe.img_url }}" alt="{{ cafe.name }}"><br>
+</div>
+{% endfor %}

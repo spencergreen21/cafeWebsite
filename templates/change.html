@@ -1,0 +1,12 @@
+{% include "header.html" %}
+
+<h1>Change coffee price</h1>
+
+<form method="POST" action="{{ url_for('patch_new_price', cafe_id=cafe_id) }}">
+    <label for="api_key">API Key:</label>
+    <input type="text" id="api_key" name="api_key" required>
+    <label for="new_price">New Price:</label>  <!-- Corrected name attribute -->
+    <input type="number" step=".25" id="new_price" name="new_price" required>
+    <br>
+    <input type="submit" value="Change Price">
+</form>

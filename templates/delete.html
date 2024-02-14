@@ -1,0 +1,11 @@
+{% include "header.html" %}
+
+<h1>Report a Cafe Closed</h1>
+
+<form method="POST" action="{{ url_for('delete_cafe', cafe_id=cafe_id) }}">
+    <label for="api_key">API Key:</label>
+    <input type="text" id="api_key" name="api_key" required>
+    <br>
+    <input type="submit" value="Delete Cafe">
+</form>
+

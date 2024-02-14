@@ -1,0 +1,45 @@
+{% include "header.html" %}
+
+    <h1>Add New Cafe</h1>
+
+    <!-- Cafe Submission Form (Hidden by Default) -->
+    <form id="cafe-form" method="POST" action="/add">
+
+        <label for="api-key">API Key:</label>
+        <input type="text" id="api-key" name="api-key" required><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="map_url">Map URL:</label>
+        <input type="text" id="map_url" name="map_url" required><br>
+
+        <label for="img_url">Image URL:</label>
+        <input type="text" id="img_url" name="img_url" required><br>
+
+        <label for="loc">Location:</label>
+        <input type="text" id="loc" name="loc" required><br>
+
+        <label for="sockets">Has Sockets:</label>
+        <input type="checkbox" id="sockets" name="sockets"><br>
+
+        <label for="toilet">Has Toilet:</label>
+        <input type="checkbox" id="toilet" name="toilet"><br>
+
+        <label for="wifi">Has Wifi:</label>
+        <input type="checkbox" id="wifi" name="wifi"><br>
+
+        <label for="calls">Can Take Calls:</label>
+        <input type="checkbox" id="calls" name="calls"><br>
+
+        <label for="seats">Seats:</label>
+        <input type="text" id="seats" name="seats" required><br>
+
+        <label for="coffee_price">Coffee Price:</label>
+        <input type="text" id="coffee_price" name="coffee_price"><br>
+
+        <input type="submit" value="Submit Cafe">
+    </form>
+
+
+
